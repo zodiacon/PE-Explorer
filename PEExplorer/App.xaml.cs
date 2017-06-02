@@ -18,10 +18,7 @@ namespace PEExplorer {
     /// </summary>
     public partial class App  {
         MainViewModel _mainViewModel;
-        readonly Dictionary<string, Assembly> _assemblies = new Dictionary<string, Assembly>(4);
-
- 
-
+  
         protected override void OnStartup(StartupEventArgs e) {
             base.OnStartup(e);
 
