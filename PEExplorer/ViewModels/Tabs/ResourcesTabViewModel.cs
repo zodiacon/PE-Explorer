@@ -64,8 +64,8 @@ namespace PEExplorer.ViewModels.Tabs {
         private object _selectedTreeItem;
 
         public object SelectedTreeItem {
-            get { return _selectedTreeItem; }
-            set { SetProperty(ref _selectedTreeItem, value); }
+            get => _selectedTreeItem;
+            set => SetProperty(ref _selectedTreeItem, value);
         }
     }
 }

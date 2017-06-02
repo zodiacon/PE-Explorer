@@ -7,6 +7,7 @@
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:local="clr-namespace:PEExplorer.Views.Tabs"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:interactivity="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
              Margin="8"
              d:DesignHeight="300"
              d:DesignWidth="300"
@@ -27,9 +28,9 @@
         <TreeView x:Name="_tree"
                   Grid.Row="2"
                   ItemsSource="{Binding Resources}">
-            <i:Interaction.Behaviors>
+            <interactivity:Interaction.Behaviors>
                 <b:TreeViewSelectedItemBehavior SelectedItem="{Binding SelectedTreeItem, Mode=TwoWay}" />
-            </i:Interaction.Behaviors>
+            </interactivity:Interaction.Behaviors>
             <TreeView.ItemTemplate>
                 <HierarchicalDataTemplate ItemsSource="{Binding Resources}">
                     <StackPanel Orientation="Horizontal">

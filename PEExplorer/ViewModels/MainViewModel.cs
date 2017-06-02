@@ -53,8 +53,8 @@ namespace PEExplorer.ViewModels {
 		private TabViewModelBase _selectedTab;
 
 		public TabViewModelBase SelectedTab {
-			get { return _selectedTab; }
-			set { SetProperty(ref _selectedTab, value); }
+			get => _selectedTab;
+		    set => SetProperty(ref _selectedTab, value);
 		}
 
 		private string _fileName;
@@ -63,14 +63,14 @@ namespace PEExplorer.ViewModels {
 
 		public string PathName { get; set; }
 		public PEHeader PEHeader {
-			get { return _peHeader; }
-			set { SetProperty(ref _peHeader, value); }
+			get => _peHeader;
+		    set => SetProperty(ref _peHeader, value);
 		}
 
 
 		public string FileName {
-			get { return _fileName; }
-			set { SetProperty(ref _fileName, value); }
+			get => _fileName;
+		    set => SetProperty(ref _fileName, value);
 		}
 
 		[Import]

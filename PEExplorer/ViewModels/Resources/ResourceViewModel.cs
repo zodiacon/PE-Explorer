@@ -93,8 +93,8 @@ namespace PEExplorer.ViewModels.Resources {
         private bool _rawView;
 
         public bool RawView {
-            get { return _rawView; }
-            set { SetProperty(ref _rawView, value); }
+            get => _rawView;
+            set => SetProperty(ref _rawView, value);
         }
 
         private bool _is8Bytes;

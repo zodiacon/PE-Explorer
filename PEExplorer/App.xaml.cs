@@ -16,7 +16,7 @@ namespace PEExplorer {
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
-    public partial class App : Application {
+    public partial class App  {
         MainViewModel _mainViewModel;
         readonly Dictionary<string, Assembly> _assemblies = new Dictionary<string, Assembly>(4);
 

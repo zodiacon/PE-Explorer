@@ -7,6 +7,7 @@
 			 xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
 			 xmlns:metro="http://metro.mahapps.com/winfx/xaml/controls"
 			 xmlns:z="http://zodiacon.wpf/2016"
+			 xmlns:interactivity="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
 			 mc:Ignorable="d" x:Name="This"
 			 d:DesignHeight="300" d:DesignWidth="300">
 	<UserControl.Resources>
@@ -98,11 +99,11 @@
 			</TabControl.ItemContainerStyle>
 		</TabControl>
 		<TreeView Grid.Row="2" Grid.Column="0" BorderThickness="0" ItemsSource="{Binding TreeRoot}" x:Name="_tree">
-			<i:Interaction.Triggers>
-				<i:EventTrigger EventName="MouseDoubleClick">
-					<i:InvokeCommandAction Command="{Binding SelectTabCommand}" CommandParameter="{Binding SelectedItem, ElementName=_tree}" />
-				</i:EventTrigger>
-			</i:Interaction.Triggers>
+			<interactivity:Interaction.Triggers>
+				<interactivity:EventTrigger EventName="MouseDoubleClick">
+					<interactivity:InvokeCommandAction Command="{Binding SelectTabCommand}" CommandParameter="{Binding SelectedItem, ElementName=_tree}" />
+				</interactivity:EventTrigger>
+			</interactivity:Interaction.Triggers>
 			<TreeView.ItemContainerStyle>
 				<Style TargetType="TreeViewItem" BasedOn="{StaticResource MetroTreeViewItem}">
 					<Setter Property="IsExpanded" Value="{Binding IsExpanded, Mode=TwoWay}" />

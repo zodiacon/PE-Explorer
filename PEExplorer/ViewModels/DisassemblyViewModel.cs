@@ -27,8 +27,8 @@ namespace PEExplorer.ViewModels {
         private IEnumerable<InstructionViewModel> _instructions;
 
         public IEnumerable<InstructionViewModel> Instructions {
-            get { return _instructions; }
-            set { SetProperty(ref _instructions, value); }
+            get => _instructions;
+            set => SetProperty(ref _instructions, value);
         }
 
         public string Title => $"Disassembly: {SymbolName}";

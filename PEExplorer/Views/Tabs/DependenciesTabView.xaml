@@ -8,6 +8,7 @@
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:z="http://zodiacon.wpf/2016"
 				 xmlns:tabs="clr-namespace:PEExplorer.ViewModels.Tabs"
+				 xmlns:interactivity="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
 				 mc:Ignorable="d" 
 				 d:DesignHeight="300" d:DesignWidth="300">
 	<Grid>
@@ -24,9 +25,9 @@
 			</HierarchicalDataTemplate>
 		</Grid.Resources>
 		<TreeView>
-            <i:Interaction.Behaviors>
+            <interactivity:Interaction.Behaviors>
                 <z:TreeViewSelectedItemBehavior SelectedItem="{Binding SelectedItem, Mode=TwoWay}" />
-            </i:Interaction.Behaviors>
+            </interactivity:Interaction.Behaviors>
 			<TreeViewItem Header="{Binding PEImage}" ItemsSource="{Binding Dependencies}" IsExpanded="True">
 				<TreeViewItem.ItemContainerStyle>
 					<Style TargetType="TreeViewItem" BasedOn="{StaticResource MetroTreeViewItem}">

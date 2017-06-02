@@ -74,8 +74,8 @@ namespace PEExplorer.ViewModels.Tabs {
 		private ExportedSymbol _selectedItem;
 
 		public ExportedSymbol SelectedItem {
-			get { return _selectedItem; }
-			set { SetProperty(ref _selectedItem, value); }
+			get => _selectedItem;
+		    set => SetProperty(ref _selectedItem, value);
 		}
 
 	}

@@ -33,15 +33,15 @@ namespace PEExplorer.ViewModels.Tabs {
 		private bool _isExpanded;
 
 		public bool IsExpanded {
-			get { return _isExpanded; }
-			set { SetProperty(ref _isExpanded, value); }
+			get => _isExpanded;
+		    set => SetProperty(ref _isExpanded, value);
 		}
 
 		private bool _isSelected;
 
 		public bool IsSelected {
-			get { return _isSelected; }
-			set { SetProperty(ref _isSelected, value); }
+			get => _isSelected;
+		    set => SetProperty(ref _isSelected, value);
 		}
 
 		IEnumerable<object> _exports;
@@ -128,8 +128,8 @@ namespace PEExplorer.ViewModels.Tabs {
 		private DependencyTreeItem _selectedItem;
 
 		public DependencyTreeItem SelectedItem {
-			get { return _selectedItem; }
-			set { SetProperty(ref _selectedItem, value); }
+			get => _selectedItem;
+		    set => SetProperty(ref _selectedItem, value);
 		}
 
 		public Dictionary<string, ImportedLibrary> Imports { get; private set; }
