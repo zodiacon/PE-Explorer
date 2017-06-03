@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PEExplorer.Helpers {
     static class Serializer {
@@ -20,7 +16,8 @@ namespace PEExplorer.Helpers {
                 using(var stm = File.Open(path, FileMode.Create))
                     Save(obj, stm);
             }
-            catch {
+            catch(Exception ex) {
+                App.AppLogger.Error(ex);
             }
         }
 
@@ -35,7 +32,8 @@ namespace PEExplorer.Helpers {
                 using(var stm = File.Open(path, FileMode.Open))
                     return Load<T>(stm);
             }
-            catch {
+            catch (Exception ex) {
+                App.AppLogger.Error(ex);
                 return null;
             }
         }

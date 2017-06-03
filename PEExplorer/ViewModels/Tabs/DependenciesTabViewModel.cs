@@ -3,19 +3,16 @@ using PEExplorer.Core;
 using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.ComponentModel.Composition;
-using System.Diagnostics;
 using System.IO;
 using System.IO.MemoryMappedFiles;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PEExplorer.ViewModels.Tabs {
+
 	sealed class DependencyTreeItem : BindableBase {
-		MemoryMappedViewAccessor _accessor;
-		DependenciesTabViewModel _tab;
+	    readonly MemoryMappedViewAccessor _accessor;
+	    readonly DependenciesTabViewModel _tab;
 
 		public DependencyTreeItem(DependenciesTabViewModel tab, string filename, bool apiSet, MemoryMappedViewAccessor accessor = null, IEnumerable<object> exports = null) {
 			FilePath = filename;
@@ -54,14 +51,21 @@ namespace PEExplorer.ViewModels.Tabs {
                             _exports = library.Symbols;
 					}
 					else {
-						try {
-							using(var pe = new PEFile(FilePath)) {
-								using(var parser = new PEFileParser(pe, FilePath)) {
-									_exports = parser.GetExports();
-								}
-							}
-						}
-						catch { }
+					    try
+					    {
+					        using (var pe = new PEFile(FilePath))
+					        {
+					            using (var parser = new PEFileParser(pe, FilePath))
+					            {
+					                _exports = parser.GetExports();
+					            }
+					        }
+					    }
+					    catch (Exception ex)
+					    {
+					        App.AppLogger.Error(ex);
+
+                        }
 					}
 				}
 				return _exports;
@@ -80,8 +84,9 @@ namespace PEExplorer.ViewModels.Tabs {
 					try {
 						pefile = new PEFile(FilePath);
 					}
-					catch(FileNotFoundException) {
-						return null;
+					catch(FileNotFoundException ex) {
+					    App.AppLogger.Error(ex);
+                        return null;
 					}
 					using(var parser = new PEFileParser(pefile, FilePath, _accessor)) {
 						var imports = parser.GetImports();

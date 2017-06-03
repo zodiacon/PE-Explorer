@@ -1,13 +1,10 @@
 ﻿using PEExplorer.Core;
 using PEExplorer.Helpers;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PEExplorer.ViewModels.Tabs {
+
 	[Export, PartCreationPolicy(CreationPolicy.NonShared)]
 	class LoadConfigTabViewModel : TabViewModelBase {
 		LoadConfiguration _loadConfig;
@@ -40,7 +37,7 @@ namespace PEExplorer.ViewModels.Tabs {
 				if (_properties == null) {
 					_loadConfig = MainViewModel.PEParser.GetLoadConfiguration();
 
-					_properties = new GenericProperty[] {
+					_properties = new[] {
 						new GenericProperty { Name = "Time Stamp", Value = _loadConfig.TimeDateStamp.ToString(), Info = DateTimeHelper.FromSeconds(_loadConfig.TimeDateStamp).ToString() },
 						new GenericProperty { Name = "Major Version", Value = _loadConfig.MajorVersion.ToString() },
 						new GenericProperty { Name = "Minor Version", Value = _loadConfig.MinorVersion.ToString() },

@@ -6,8 +6,6 @@ using System.ComponentModel.Composition.Hosting;
 using System.IO;
 using System.IO.MemoryMappedFiles;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using Microsoft.Diagnostics.Runtime.Utilities;
@@ -20,6 +18,7 @@ using Zodiacon.WPF;
 using System.Diagnostics;
 
 namespace PEExplorer.ViewModels {
+
 	[Export]
 	class MainViewModel : BindableBase {
 		public string Title => PathName == null ? null : $"{Constants.AppName} {Constants.Copyright} ({PathName}) ";
@@ -93,7 +92,8 @@ namespace PEExplorer.ViewModels {
 				OpenInternal(filename, param == "new");
 			}
 			catch (Exception ex) {
-				MessageBoxService.ShowMessage(ex.Message, "PE Explorer");
+			    App.AppLogger.Error(ex);
+                MessageBoxService.ShowMessage(ex.Message, "PE Explorer");
 			}
 		}, param => param == null || PEHeader != null).ObservesProperty(() => PEHeader);
 
@@ -206,7 +206,8 @@ namespace PEExplorer.ViewModels {
 					RecentFiles.RemoveAt(RecentFiles.Count - 1);
 			}
 			catch (Exception ex) {
-				MessageBoxService.ShowMessage($"Error: {ex.Message}", Constants.AppName);
+			    App.AppLogger.Error(ex);
+                MessageBoxService.ShowMessage($"Error: {ex.Message}", Constants.AppName);
 			}
 
 		}

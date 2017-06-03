@@ -11,17 +11,21 @@ using System.Windows;
 using PEExplorer.ViewModels;
 using Zodiacon.WPF;
 using System.Runtime.CompilerServices;
+using NLog;
 
 namespace PEExplorer {
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
     public partial class App  {
+
         MainViewModel _mainViewModel;
-  
+        public static Logger AppLogger = LogManager.GetCurrentClassLogger();
+
         protected override void OnStartup(StartupEventArgs e) {
             base.OnStartup(e);
 
+            AppLogger.Info("Initializing...");
             var container = new CompositionContainer(
                 new AggregateCatalog(
                     new AssemblyCatalog(Assembly.GetExecutingAssembly()),
@@ -46,4 +50,7 @@ namespace PEExplorer {
             base.OnExit(e);
         }
     }
+
+
+
 }
