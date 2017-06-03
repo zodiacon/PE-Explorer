@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using SharpDisasm;
 using Zodiacon.WPF;
@@ -27,8 +24,8 @@ namespace PEExplorer.ViewModels {
         private IEnumerable<InstructionViewModel> _instructions;
 
         public IEnumerable<InstructionViewModel> Instructions {
-            get { return _instructions; }
-            set { SetProperty(ref _instructions, value); }
+            get => _instructions;
+            set => SetProperty(ref _instructions, value);
         }
 
         public string Title => $"Disassembly: {SymbolName}";

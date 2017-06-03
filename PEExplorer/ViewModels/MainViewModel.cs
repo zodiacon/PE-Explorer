@@ -6,8 +6,6 @@ using System.ComponentModel.Composition.Hosting;
 using System.IO;
 using System.IO.MemoryMappedFiles;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using Microsoft.Diagnostics.Runtime.Utilities;
@@ -20,6 +18,7 @@ using Zodiacon.WPF;
 using System.Diagnostics;
 
 namespace PEExplorer.ViewModels {
+
 	[Export]
 	class MainViewModel : BindableBase {
 		public string Title => PathName == null ? null : $"{Constants.AppName} {Constants.Copyright} ({PathName}) ";
@@ -35,13 +34,13 @@ namespace PEExplorer.ViewModels {
 		public MainViewModel() {
 			if (_firstViewModel == null)
 				_firstViewModel = this;
-			var recentFiles = Serializer.Load<ObservableCollection<string>>("RecentFiles");
+			var recentFiles = CustomSerializer.Load<ObservableCollection<string>>("RecentFiles");
 			if (recentFiles != null)
 				_recentFiles = recentFiles;
 		}
 
 		internal void Close() {
-			Serializer.Save(_recentFiles, "RecentFiles");
+			CustomSerializer.Save(_recentFiles, "RecentFiles");
 		}
 
 		public void SelectTab(TabViewModelBase tab) {
@@ -53,8 +52,8 @@ namespace PEExplorer.ViewModels {
 		private TabViewModelBase _selectedTab;
 
 		public TabViewModelBase SelectedTab {
-			get { return _selectedTab; }
-			set { SetProperty(ref _selectedTab, value); }
+			get => _selectedTab;
+		    set => SetProperty(ref _selectedTab, value);
 		}
 
 		private string _fileName;
@@ -63,14 +62,14 @@ namespace PEExplorer.ViewModels {
 
 		public string PathName { get; set; }
 		public PEHeader PEHeader {
-			get { return _peHeader; }
-			set { SetProperty(ref _peHeader, value); }
+			get => _peHeader;
+		    set => SetProperty(ref _peHeader, value);
 		}
 
 
 		public string FileName {
-			get { return _fileName; }
-			set { SetProperty(ref _fileName, value); }
+			get => _fileName;
+		    set => SetProperty(ref _fileName, value);
 		}
 
 		[Import]
@@ -93,7 +92,8 @@ namespace PEExplorer.ViewModels {
 				OpenInternal(filename, param == "new");
 			}
 			catch (Exception ex) {
-				MessageBoxService.ShowMessage(ex.Message, "PE Explorer");
+			    App.AppLogger.Error(ex);
+                MessageBoxService.ShowMessage(ex.Message, "PE Explorer");
 			}
 		}, param => param == null || PEHeader != null).ObservesProperty(() => PEHeader);
 
@@ -206,7 +206,8 @@ namespace PEExplorer.ViewModels {
 					RecentFiles.RemoveAt(RecentFiles.Count - 1);
 			}
 			catch (Exception ex) {
-				MessageBoxService.ShowMessage($"Error: {ex.Message}", Constants.AppName);
+			    App.AppLogger.Error(ex);
+                MessageBoxService.ShowMessage($"Error: {ex.Message}", Constants.AppName);
 			}
 
 		}

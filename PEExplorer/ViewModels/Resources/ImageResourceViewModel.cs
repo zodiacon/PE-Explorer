@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Media;
+﻿using System.Windows.Media;
 using PEExplorer.Core;
 
 namespace PEExplorer.ViewModels.Resources {
     class ImageResourceViewModel : ResourceViewModel {
-        public ImageResourceViewModel(ResourceID id, ResourceTypeViewModel type) : base(id, type) {
+        public ImageResourceViewModel(ResourceID id, ResourceTypeViewModel type) :
+            base(id, type) {
         }
 
         ImageSource _image;

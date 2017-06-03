@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
-using Prism.Commands;
 using Prism.Mvvm;
 
 namespace PEExplorer.ViewModels {
+
     class TreeViewItemViewModel : BindableBase {
         protected MainViewModel MainViewModel { get; }
         public TreeViewItemViewModel(MainViewModel vm) {
@@ -17,15 +12,15 @@ namespace PEExplorer.ViewModels {
         private string _text;
 
         public string Text {
-            get { return _text ?? Tab.Text; }
-            set { SetProperty(ref _text, value); }
+            get => _text ?? Tab.Text;
+            set => SetProperty(ref _text, value);
         }
 
         private string _icon;
 
         public string Icon {
-            get { return _icon ?? Tab.Icon; }
-            set { SetProperty(ref _icon, value); }
+            get => _icon ?? Tab.Icon;
+            set => SetProperty(ref _icon, value);
         }
 
         public TabViewModelBase Tab { get; set; }
@@ -37,8 +32,8 @@ namespace PEExplorer.ViewModels {
         private bool _isExpanded;
 
         public bool IsExpanded {
-            get { return _isExpanded; }
-            set { SetProperty(ref _isExpanded, value); }
+            get => _isExpanded;
+            set => SetProperty(ref _isExpanded, value);
         }
 
     }

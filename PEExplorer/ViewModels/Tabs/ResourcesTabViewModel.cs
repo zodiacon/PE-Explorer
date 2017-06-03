@@ -1,13 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.ComponentModel.Composition;
-using System.ComponentModel.Composition.Hosting;
-using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using PEExplorer.Core;
 using PEExplorer.ViewModels.Resources;
@@ -15,6 +9,7 @@ using Prism.Commands;
 using Zodiacon.WPF;
 
 namespace PEExplorer.ViewModels.Tabs {
+
     [Export, PartCreationPolicy(CreationPolicy.NonShared)]
     class ResourcesTabViewModel : TabViewModelBase, IDisposable {
         ResourceManager _resourceManager;
@@ -64,8 +59,8 @@ namespace PEExplorer.ViewModels.Tabs {
         private object _selectedTreeItem;
 
         public object SelectedTreeItem {
-            get { return _selectedTreeItem; }
-            set { SetProperty(ref _selectedTreeItem, value); }
+            get => _selectedTreeItem;
+            set => SetProperty(ref _selectedTreeItem, value);
         }
     }
 }

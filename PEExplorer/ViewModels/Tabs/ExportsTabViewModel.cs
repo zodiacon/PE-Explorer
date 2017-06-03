@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.Composition;
-using System.IO;
-using System.IO.MemoryMappedFiles;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Data;
 using System.Windows.Input;
 using PEExplorer.Core;
@@ -74,8 +67,8 @@ namespace PEExplorer.ViewModels.Tabs {
 		private ExportedSymbol _selectedItem;
 
 		public ExportedSymbol SelectedItem {
-			get { return _selectedItem; }
-			set { SetProperty(ref _selectedItem, value); }
+			get => _selectedItem;
+		    set => SetProperty(ref _selectedItem, value);
 		}
 
 	}

@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Data;
 using Microsoft.Diagnostics.Runtime.Utilities;
 using PEExplorer.Core;
 
 namespace PEExplorer.ViewModels.Tabs {
+
     [Export, PartCreationPolicy(CreationPolicy.NonShared)]
     class GeneralTabViewModel : TabViewModelBase {
         [ImportingConstructor]

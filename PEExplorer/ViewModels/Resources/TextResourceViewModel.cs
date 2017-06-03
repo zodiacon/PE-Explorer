@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using PEExplorer.Core;
+﻿using PEExplorer.Core;
 
 namespace PEExplorer.ViewModels.Resources {
     class TextResourceViewModel : ResourceViewModel {
