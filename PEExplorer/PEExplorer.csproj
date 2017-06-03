@@ -102,6 +102,9 @@
       <HintPath>..\packages\Prism.Core.6.3.0\lib\net45\Prism.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="protobuf-net, Version=2.2.1.0, Culture=neutral, PublicKeyToken=257b51d87d2e4d67, processorArchitecture=MSIL">
+      <HintPath>..\packages\protobuf-net.2.2.1\lib\net40\protobuf-net.dll</HintPath>
+    </Reference>
     <Reference Include="SharpDisasm, Version=1.1.5.0, Culture=neutral, PublicKeyToken=71afd155bcebae3e, processorArchitecture=MSIL">
       <HintPath>..\packages\SharpDisasm.1.1.5\lib\net45\SharpDisasm.dll</HintPath>
       <Private>False</Private>
@@ -142,7 +145,7 @@
     <Compile Include="Converters\ResourceTemplateSelector.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="Helpers\DateTimeHelper.cs" />
-    <Compile Include="Helpers\Serializer.cs" />
+    <Compile Include="Helpers\CustomSerializer.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="ViewModels\DisassemblyViewModel.cs" />
     <Compile Include="ViewModels\Resources\ImageResourceViewModel.cs" />

@@ -34,13 +34,13 @@ namespace PEExplorer.ViewModels {
 		public MainViewModel() {
 			if (_firstViewModel == null)
 				_firstViewModel = this;
-			var recentFiles = Serializer.Load<ObservableCollection<string>>("RecentFiles");
+			var recentFiles = CustomSerializer.Load<ObservableCollection<string>>("RecentFiles");
 			if (recentFiles != null)
 				_recentFiles = recentFiles;
 		}
 
 		internal void Close() {
-			Serializer.Save(_recentFiles, "RecentFiles");
+			CustomSerializer.Save(_recentFiles, "RecentFiles");
 		}
 
 		public void SelectTab(TabViewModelBase tab) {
